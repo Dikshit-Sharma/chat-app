@@ -4,9 +4,11 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [err, setErr] = useState(false);
+  const navigate = useNavigate()
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +41,7 @@ const Register = () => {
             // Handle progress, if needed
           },
           (error) => {
-            console.error("Error uploading file:", error);
+            // console.error("Error uploading file:", error);
             setErr(true);
           },
           () => {
@@ -56,16 +58,19 @@ const Register = () => {
                   email,
                   photoURL: downloadURL,
                 });
+
+                await setDoc(doc(db, "userChats", res.user.uid), {});
+                navigate("/login");
               })
               .catch((err) => {
-                console.error("Error getting download URL:", err);
+                // console.error("Error getting download URL:", err);
                 setErr(true);
               });
           }
         );
       }
     } catch (err) {
-      console.log('getting this error', err);
+      // console.log('getting this error', err);
       setErr(true);
     }
   };
@@ -87,7 +92,7 @@ const Register = () => {
           <button>Sign Up</button>
           {err && <span>Something went wrong</span>}
         </form>
-        <p>You do have an account? Login</p>
+        <p>You do have an account? <Link to="/login">Log In</Link></p>
       </div>
     </div>
   );
