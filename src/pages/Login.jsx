@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+import BriefIntro from "../components/BriefIntro";
 
 
 const Login = () => {
-
   const [err, setErr] = useState(false);
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target[0].value;
@@ -18,26 +18,31 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
     } catch (err) {
-      // console.log('getting this error', err);
       setErr(true);
     }
   };
 
   return (
-    <div className='formContainer'>
+    <div className="authPage">
+      <div className="formContainer">
+      <BriefIntro />
         <div className="formWrapper">
-            <span className="logo">Chat Hub</span>
-            <span className="title">Login</span>
-            <form onSubmit={handleSubmit}>
-                <input type="email" placeholder='email'/>
-                <input type="password" placeholder='password'/>
-                <button>Sign in</button>
-                {err && <span>Something went wrong</span>}            
-            </form>
-            <p>You don't have an account? <Link to ="/register">Register</Link></p>
+          <span className="logo">Chat Hub</span>
+          <span className="title">Login</span>
+          <form onSubmit={handleSubmit} className="form">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button className="btn">Sign in</button>
+            {err && <span className="error">Something went wrong</span>}
+          </form>
+          <p>
+            Don't have an account? <Link to="/register">Register</Link>
+          </p>
         </div>
+      </div>
+      
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
