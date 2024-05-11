@@ -38,7 +38,7 @@ REACT_APP_APP_ID=your-app-id
 
 6.Start the development server: npm start
 
-##Usage
+## Usage
 
 - Register or login with your email and password.
 - Customize your profile with an avatar and display name.
