@@ -40,7 +40,7 @@ REACT_APP_APP_ID=your-app-id
 
 ##Usage
 
--Register or login with your email and password.
--Customize your profile with an avatar and display name.
--Start chatting with other users in real-time.
--Share files by clicking on the file upload button within the chat interface.
+- Register or login with your email and password.
+- Customize your profile with an avatar and display name.
+- Start chatting with other users in real-time.
+- Share files by clicking on the file upload button within the chat interface.
