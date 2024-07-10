@@ -4,6 +4,7 @@
 ### Testing Account:
 - **Email: 211502@juitsolan.in   Password: dikshit123
 - **Email: 211503@juitsolan.in   Password: dikshit123
+- **User Names: Tarisha Kaplex, Vipul, Aaryan, Vipu
 
 ## Features
 
