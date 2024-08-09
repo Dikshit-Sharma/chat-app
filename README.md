@@ -5,6 +5,7 @@
 - **Email: 211502@juitsolan.in   Password: dikshit123
 - **Email: 211503@juitsolan.in   Password: dikshit123
 - **User Names(For user search testing): Tarisha Kaplex, Vipul, Aaryan, Vipu
+- - **NOTE: You can only use email id of Jaypee University of Information Technology, Solan that are alloted to the students(This can be changed by making changes to the Login page.)
 
 ## Features
 
